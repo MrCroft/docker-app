@@ -1,0 +1,51 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<mat-sidenav-container class="example-container" *ngIf="true">
+  <mat-sidenav #mainMenu mode="over" opened="false" position="end"
+    [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0">
+
+    <mat-nav-list id="pd--main_nav">
+      <a mat-list-item [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon matListIcon>home</mat-icon> <span>Home</span>
+      </a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <!-- MAT-TOOLBAR could also be here -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" id="pd--main_toolbar">
+      <mat-toolbar-row>
+        <div class="left-nav">
+          <!-- <h2><a [routerLink]="['/']">My App</a></h2> -->
+          <a [routerLink]="['/']" class="btn-brand" mat-button>My App</a>
+        </div>
+
+        <div class="right-nav">
+
+        </div>
+        <button mat-icon-button class="btn-menu" (click)="mainMenu.opened ? mainMenu.close() : mainMenu.open()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="container">
+      <div style="text-align:center">
+        <h2>
+          API Host: {{ apiEndPoint }}
+          <br />COOKIE Domain: {{ cookieDomain }}
+        </h2>
+
+        <button mat-raised-button color="primary">PRIMARY BUTTON</button>
+        <button mat-raised-button color="accent">ACCENT BUTTON</button>
+        <button mat-raised-button color="warn">WARN BUTTON</button>
+      </div>
+
+      <router-outlet></router-outlet>
+
+      <footer>
+        Copyright 2018 &copy; MY APP
+      </footer>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

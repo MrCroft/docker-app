@@ -1,0 +1,44 @@
+/**
+ * SNACKBAR
+ */
+.mat-snack-bar-container {
+  &.snack-info { background: #0b5394; }
+  &.snack-success { background: #12c085; }
+  &.snack-error { background: #ff0056; }
+
+  &.snack-info,
+  &.snack-success,
+  &.snack-error {
+    color: #fff;
+  }
+}
+
+.snack-error {
+  animation: error 1200ms 3;
+}
+
+@keyframes error {
+  0% { background: #ff0056; }
+  50% { background: #323232; }
+  100% { background: #ff0056; }
+}
+
+.snack-success {
+  animation: success 1200ms 3;
+}
+
+@keyframes success {
+  0% { background: #12c085; }
+  50% { background: #323232; }
+  100% { background: #12c085; }
+}
+
+.snack-info {
+  animation: info 1200ms 3;
+}
+
+@keyframes info {
+  0% { background: #0b5394; }
+  50% { background: #323232; }
+  100% { background: #0b5394; }
+}

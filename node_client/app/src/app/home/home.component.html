@@ -1,0 +1,32 @@
+<div *ngIf="(videos | async)?.data; let videos; else loading">
+  <div class="videos-listing">
+    <h2 style="padding-left: 8px;">New Videos</h2>
+    <mat-card *ngFor="let video of videos.new">
+
+      <mat-card-content>
+        Video id: {{ video.id }}
+      </mat-card-content>
+
+      <mat-card-footer>
+        <h3>{{ video.title }}</h3>
+      </mat-card-footer>
+    </mat-card>
+
+  </div>
+
+  <div class="videos-listing">
+    <h2 style="padding-left: 8px;">Popular Videos</h2>
+    <mat-card *ngFor="let video of videos.popular">
+
+      <mat-card-content>
+        Video id: {{ video.id }}
+      </mat-card-content>
+
+      <mat-card-footer>
+        <h3>{{ video.title }}</h3>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+
+</div>
+<ng-template #loading>Loading Videos...</ng-template>

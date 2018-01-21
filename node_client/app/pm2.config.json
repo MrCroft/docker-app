@@ -1,0 +1,23 @@
+{
+  "apps": [
+    {
+      "name": "my_client",
+      "script": "./dist/server.ts",
+      "watch": true,
+      "ignore_watch": [
+        "node_modules",
+        "package.json"
+      ],
+      "watch_options": {
+        "usePolling": true,
+        "interval": 1200
+      },
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

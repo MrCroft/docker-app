@@ -1,0 +1,163 @@
+//@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import 'components/index';
+
+$pd-black: (
+    50 : #e0e0e0,
+    100 : #b3b3b3,
+    200 : #808080,
+    300 : #4d4d4d,
+    400 : #262626,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #a6a6a6,
+    A200 : #8c8c8c,
+    A400 : #737373,
+    A700 : #666666,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$pd-red: (
+    50 : #fde5e9,
+    100 : #fabfc7,
+    200 : #f794a2,
+    300 : #f4697d,
+    400 : #f14961,
+    500 : #ef2945,
+    600 : #ed243e,
+    700 : #eb1f36,
+    800 : #e8192e,
+    900 : #e40f1f,
+    A100 : #ffffff,
+    A200 : #ffdddf,
+    A400 : #ffaaaf,
+    A700 : #ff9097,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// rgb(66, 133, 244)
+$pd-accent: (
+    50 : #e4ebfa,
+    100 : #bccdf2,
+    200 : #90abe9,
+    300 : #6389e0,
+    400 : #4170d9,
+    500 : #2057d2,
+    600 : #1c4fcd,
+    700 : #1846c7,
+    800 : #133cc1,
+    900 : #0b2cb6,
+    A100 : #e2e6ff,
+    A200 : #afbbff,
+    A400 : #7c90ff,
+    A700 : #637aff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+//@import '~@angular/material/core/theming/all-theme';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$ums-typography: mat-typography-config(
+  $font-family: 'Lato, sans-serif',
+  $headline: mat-typography-level(18px, 24px, 700),
+  $body-1: mat-typography-level(13px, 15px, 500)
+);
+@include mat-base-typography($ums-typography);
+
+// $primary: mat-palette($mat-pd-dark);
+// $accent: mat-palette($mat-pd-blue);
+// $warn: mat-palette($mat-pd-red);
+
+$primary: mat-palette($pd-black);
+$accent: mat-palette($pd-accent);
+$warn: mat-palette($pd-red);
+
+// $theme: mat-light-theme($primary, $accent, $warn);
+$theme: mat-dark-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+
+/**
+ * SNACKBAR
+ */
+.mat-simple-snackbar-action { color: #fff; }
+
+.snackbar-error {
+  animation: error 1200ms 2;
+}
+
+@keyframes error {
+  0% { background: #323232; }
+  50% { background: #ff0056; }
+  100% { background: #323232; }
+}
+
+.snackbar-success {
+  animation: success 1200ms 2;
+}
+
+@keyframes success {
+  0% { background: #323232; }
+  50% { background: #12c085; }
+  100% { background: #323232; }
+}
+
+.snackbar-info {
+  animation: info 1200ms 2;
+}
+
+@keyframes info {
+  0% { background: #323232; }
+  50% { background: #0b5394; }
+  100% { background: #323232; }
+}

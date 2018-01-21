@@ -1,0 +1,51 @@
+version: '3.5'
+
+# networks:
+#   default:
+#     external:
+#       name: my_net # needs to be created `docker network create my_net`
+
+services:
+  my_nginx:
+    container_name: my_nginx
+    build:
+      context: ./nginx
+    image: my_nginx
+    ports:
+      - '80:80'
+      - '443:443' # SSL
+    links:
+      - my_api
+      - my_client
+
+  my_api:
+    container_name: my_api
+    build:
+      context: ./node_api
+    image: my_api
+    ports:
+      - '8001:8001'
+    volumes:
+      - ./node_api/app:/var/www/api.my-app.com
+      - /var/www/api.my-app.com/node_modules
+    networks:
+      default:
+        aliases:
+          - api.my-app.local
+    tty: true
+
+  my_client:
+    container_name: my_client
+    build:
+      context: ./node_client
+    image: my_client
+    ports:
+      - '8000:8000'
+    # volumes:
+      # - ./node_client/app:/var/www/my-app.com
+      # - /var/www/my-app.com/node_modules
+      # # - /var/www/my-app.com/dist
+    links:
+      - my_api
+    tty: true
+    # command: ["pm2-docker", "pm2.config.json"]
